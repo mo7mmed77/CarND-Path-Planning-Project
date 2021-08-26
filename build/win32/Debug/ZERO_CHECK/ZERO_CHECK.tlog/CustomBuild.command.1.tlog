@@ -1,0 +1,10 @@
+^D:\SELF_DRIVING_CAR\PATH PLANING\HIGH WAY PLANNING\BUILD\CMAKEFILES\534200C52CAEC93F24D0530DD7E0A4AD\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SD:/self_driving_car/Path Planing/high way planning" "-BD:/self_driving_car/Path Planing/high way planning/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/self_driving_car/Path Planing/high way planning/build/Path_Planning.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

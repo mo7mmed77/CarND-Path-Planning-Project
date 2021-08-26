@@ -1,5 +1,7 @@
 #ifndef HELPERS_H
 #define HELPERS_H
+#define _USE_MATH_DEFINES
+#include <cmath>
 
 #include <math.h>
 #include <string>

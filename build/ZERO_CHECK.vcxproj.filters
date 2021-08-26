@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\self_driving_car\Path Planing\high way planning\build\CMakeFiles\534200c52caec93f24d0530dd7e0a4ad\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{1228F715-57BD-3C50-93F5-1C53E7B15AB4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
