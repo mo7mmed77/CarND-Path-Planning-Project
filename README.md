@@ -76,18 +76,14 @@ The car was able to drive for about 10 minutes without any collisions.
 
 ![plot](./Capture.PNG)
 
-Moreover, the car was able to pass cars when needed according to the following:- 
+Moreover, the car was able to pass cars when needed accordingly. 
 
-- The car will try to speed up to the required speed 49.5 mph within the speed limit(50mph).if the car in front is slow, it will look at the left lane if possible and check if there no upcoming car exist. if thats the case the car will perform a left lane change. 
-- if the car is on the left lane and the car infront is slow it will try to pass to the right lane, while checking for upcoming cars as well. 
-- if the car are looking to pass to any of the lanes and it is not possible due to other traffic cars, it will slow down according to the car infront.   
-- I have added a display messages in the terminal before each action is performed. 
 
 
 ## Pipeline BreakDown:- 
 The following is a more detailed explaination of the functions performed by the code (src/main.cpp):- 
 
-### Check if car is close 
+### Sensor Fusion
 
 1. Check if car is close function (lines 170:180) :
 ``` 
@@ -96,10 +92,25 @@ bool CheckIfCarIsTooClose(json sensor_fusion, int lane, double car_s, int prev_s
 
 This function takes the sensor fusion data (information about other cars), car location on s Frenet Coordinates and other inputs, and returns a boolian output of weather a car infront is too close or not. 
 
-2. Path Planing actions (lines 268:472) 
-if the car infront is too close the above actions will be performed accordingly. Similarly can be followed using this graph. 
 
-![plot](./fsm.PNG)
+### Path Planing
+
+2. Path Planing actions (lines 268:362) 
+if the car infront is too close (less than 30 meters away) the above actions will be performed accordingly. Similarly can be followed using this graph. 
+
+![plot](./fsm.png)
+
+- The car will try to speed up to the required speed 49.5 mph within the speed limit(50mph).if the car in front is slow, it will look at the left lane if possible and check if there no upcoming car exist. if thats the case the car will perform a left lane change. 
+- if the car is on the left lane and the car infront is slow it will try to pass to the right lane, while checking for upcoming cars as well. 
+- if the car are looking to pass to any of the lanes and it is not possible due to other traffic cars, it will slow down according to the car infront.   
+- I have added a display messages in the terminal before each action is performed. 
+
+### Trajectory Smoothing
+This task was performed in the lines 365 until 464. in which the following is done:- 
+- defining 5 points for the spline function to smooth the trajectory. (on previous , one current and three in the future). 
+- Transforming from global coordinates to vehicle coordinates.
+- Then these transformed 5 points are passed to the spline.
+- Finally the x point are defined as the target while the y point are generated from then spline  then transformed to the next x_val and y_val (Json msg). 
 
 
 ## Dependencies
